@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Ungu Lucu & Aesthetic</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Font Aesthetic: Caveat (Handwritten/Quirky) & Poppins (Clean) -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Poppins:wght@100;300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variabel Warna Ungu dan Aksen */
+        :root {
+            --color-light-lilac: #F0E6FF; /* Lilac Sangat Pucat (Latar Belakang) */
+            --color-violet: #8A2BE2; /* Ungu Violet (Aksen Dominan) */
+            --color-dark-purple: #4B0082; /* Ungu Tua (Teks) */
+            --color-mint-pop: #B0E0E6; /* Mint Pucat (Tombol Pop) */
+        }
+        
+        /* Font Utama dan Aesthetic */
+        .font-aesthetic {
+            font-family: 'Caveat', cursive; /* Font Lucu/Handwritten untuk Judul */
+        }
+        .font-clean {
+            font-family: 'Poppins', sans-serif; /* Font Bersih untuk Badan Teks */
+        }
+
+        body {
+            background-color: var(--color-light-lilac);
+            color: var(--color-dark-purple);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Styling Kartu Proyek */
+        .project-card {
+            background-color: #ffffff; /* Putih Bersih */
+            box-shadow: 0 10px 30px rgba(75, 0, 130, 0.1); /* Bayangan Ungu Halus */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(75, 0, 130, 0.2);
+        }
+
+        /* Styling Tombol Lucu */
+        .btn-pop {
+            background-color: var(--color-mint-pop);
+            color: var(--color-dark-purple);
+            border: 2px solid var(--color-dark-purple);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-pop:hover {
+            background-color: var(--color-violet);
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="font-clean antialiased">
+
+    <!-- Header & Navigasi -->
+    <header class="max-w-6xl mx-auto py-6 px-4">
+        <nav class="flex justify-between items-center text-lg">
+            <div class="text-3xl font-aesthetic tracking-wider text-violet-700">
+                Violet Voyager
+            </div>
+            <div class="space-x-6 font-medium">
+                <a href="#projects" class="hover:text-violet-500 transition duration-150">Karya Ajaib</a>
+                <a href="#about" class="hover:text-violet-500 transition duration-150">Siapa Saya</a>
+                <a href="#contact" class="hover:text-violet-500 transition duration-150">Teleportasi</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4">
+
+        <!-- 1. HERO SECTION (Judul Lucu & Aesthetic) -->
+        <section id="hero" class="py-24 text-center">
+            <h1 class="text-8xl md:text-9xl font-aesthetic font-normal leading-tight mx-auto mb-6 text-violet-800">
+                Saya Aliyatul atsna, Saya <span class="text-violet-500 italic">Suka</span> Mengkode.
+            </h1>
+            <p class="text-2xl max-w-2xl mx-auto mb-10 text-gray-700">
+                ...atau setidaknya, saya sangat suka ketika kode yang saya tulis berhasil di percobaan ke-10. Selamat datang di dunia digital saya yang serba ungu dan sedikit konyol.
+            </p>
+            
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})" 
+                class="btn-pop px-8 py-3 rounded-full text-xl shadow-lg transition duration-300">
+                Saksikan Keajaiban ✨
+            </button>
+        </section>
+
+        <!-- 2. PROJECTS SECTION (Karya dengan Fun Fact) -->
+        <section id="projects" class="py-20 border-t border-violet-300">
+            <h2 class="text-5xl font-aesthetic mb-16 text-center text-violet-700">
+                Petualangan Kode Saya
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Proyek 1 -->
+                <div class="project-card p-6 md:p-8 rounded-xl">
+                    <span class="text-xs uppercase tracking-widest text-violet-500 font-semibold mb-2 block">Aplikasi Utama</span>
+                    <h3 class="text-3xl font-aesthetic mb-4 text-violet-800" id="project-title-1">Penjaga Tugas Harian (Semi-Otomatis)</h3>
+                    <p class="mb-4 text-gray-700" id="project-desc-1">
+                        Sebuah aplikasi To-Do List yang dibuat dengan React. Fokus pada UX yang minimalis dan performa cepat. Sebenarnya, aplikasi ini diciptakan karena saya sering lupa harus mengerjakan apa.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-violet-200 text-violet-800 rounded-lg text-sm">ReactJS</span>
+                        <span class="px-3 py-1 bg-violet-200 text-violet-800 rounded-lg text-sm">Firestore</span>
+                    </div>
+                    <p class="text-sm italic text-red-600 mb-4">
+                        *Fun Fact: Saat demo, saya tidak sengaja menghapus semua list tugas saya.
+                    </p>
+                    <!-- Gemini Feature: AI Review -->
+                    <div class="border-t pt-4 mt-4 border-violet-100">
+                        <p class="text-sm font-semibold text-violet-600 mb-2">AI Developer Critic:</p>
+                        <button id="review-button-1"
+                            onclick="generateReview(1, document.getElementById('project-title-1').textContent, document.getElementById('project-desc-1').textContent)"
+                            class="btn-pop px-4 py-2 rounded-lg text-sm shadow-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Minta Ulasan Lucu dari AI ✨
+                        </button>
+                        <div id="loading-1" class="hidden mt-2 text-xs text-violet-500">Memuat... (AI sedang mencari kekurangan proyek Anda)</div>
+                        <p id="review-result-1" class="mt-2 text-sm italic text-dark-purple"></p>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="project-card p-6 md:p-8 rounded-xl">
+                    <span class="text-xs uppercase tracking-widest text-violet-500 font-semibold mb-2 block">Desain UI/UX</span>
+                    <h3 class="text-3xl font-aesthetic mb-4 text-violet-800" id="project-title-2">Mockup Kedai Kopi Minimalis</h3>
+                    <p class="mb-4 text-gray-700" id="project-desc-2">
+                        Membuat prototipe dan desain UI untuk kedai kopi fiksi. Menggunakan Figma, saya belajar pentingnya *whitespace* dan bagaimana *font* bisa membuat minuman terasa lebih mahal.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-violet-200 text-violet-800 rounded-lg text-sm">Figma</span>
+                        <span class="px-3 py-1 bg-violet-200 text-violet-800 rounded-lg text-sm">Tailwind</span>
+                    </div>
+                    <p class="text-sm italic text-red-600 mb-4">
+                        *Fun Fact: Proses desain ini membuat saya kehabisan uang karena terlalu sering beli kopi.
+                    </p>
+                    <!-- Gemini Feature: AI Review -->
+                    <div class="border-t pt-4 mt-4 border-violet-100">
+                        <p class="text-sm font-semibold text-violet-600 mb-2">AI Developer Critic:</p>
+                        <button id="review-button-2"
+                            onclick="generateReview(2, document.getElementById('project-title-2').textContent, document.getElementById('project-desc-2').textContent)"
+                            class="btn-pop px-4 py-2 rounded-lg text-sm shadow-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Minta Ulasan Lucu dari AI ✨
+                        </button>
+                        <div id="loading-2" class="hidden mt-2 text-xs text-violet-500">Memuat... (AI sedang mencari kekurangan proyek Anda)</div>
+                        <p id="review-result-2" class="mt-2 text-sm italic text-dark-purple"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ABOUT SECTION (Keahlian & Humor) -->
+        <section id="about" class="py-20 border-t border-violet-300">
+            <h2 class="text-5xl font-aesthetic mb-12 text-center text-violet-700">
+                Siapa Saya Sebenarnya?
+            </h2>
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-xl mb-8 text-gray-800">
+                    Saya adalah seorang pelajar yang percaya bahwa setiap *bug* adalah kesempatan untuk minum segelas air lagi. Saya tertarik pada *front-end* development karena saya suka ketika hasil kerja keras saya terlihat cantik, terutama jika warnanya ungu.
+                </p>
+            </div>
+
+            <!-- Skills Minimalis dengan Ikon Lucu -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-12 text-center">
+                <div class="flex flex-col items-center p-4 rounded-lg bg-white shadow-md">
+                    <span class="text-5xl mb-2">👾</span>
+                    <p class="font-semibold text-violet-800">HTML/CSS</p>
+                    <span class="text-xs text-gray-500">Tahu cara membuat kotak berpusat (hampir selalu)</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-white shadow-md">
+                    <span class="text-5xl mb-2">⚡</span>
+                    <p class="font-semibold text-violet-800">JavaScript</p>
+                    <span class="text-xs text-gray-500">Mampu membuat DOM gemetar ketakutan</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-white shadow-md">
+                    <span class="text-5xl mb-2">💡</span>
+                    <p class="font-semibold text-violet-800">Kreativitas</p>
+                    <span class="text-xs text-gray-500">90% ide datang saat mandi</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-white shadow-md">
+                    <span class="text-5xl mb-2">🛡️</span>
+                    <p class="font-semibold text-violet-800">Kesabaran</p>
+                    <span class="text-xs text-gray-500">Level maksimum saat menghadapi *error* API</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONTACT SECTION -->
+        <section id="contact" class="py-20 border-t border-violet-300">
+            <h2 class="text-5xl font-aesthetic mb-8 text-center text-violet-700">
+                Teleportasi ke Kotak Masuk
+            </h2>
+            <p class="text-xl max-w-xl mx-auto text-center mb-10 text-gray-700">
+                Tertarik dengan kolaborasi, proyek menarik, atau hanya ingin membahas serial TV favorit? Saya siap!
+            </p>
+
+            <div class="flex justify-center space-x-6 text-lg font-medium">
+                <a href="mailto:nama.anda@email.com" class="hover:text-violet-500 transition duration-150">Email</a>
+                <span class="text-gray-400">|</span>
+                <a href="https://linkedin.com/in/namaanda" target="_blank" class="hover:text-violet-500 transition duration-150">LinkedIn</a>
+                <span class="text-gray-400">|</span>
+                <a href="https://github.com/namaanda" target="_blank" class="hover:text-violet-500 transition duration-150">GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto py-8 text-center text-sm text-gray-600 border-t mt-16 border-violet-300">
+        <p>&copy; 2025. Ditenagai oleh mimpi, kopi, dan *command line*. Terkadang saya juga tidur.</p>
+    </footer>
+
+    <!-- Logika JavaScript untuk integrasi Gemini API -->
+    <script>
+        // Konfigurasi API
+        const apiKey = ""; // API Key akan disediakan oleh runtime
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+        const MAX_RETRIES = 3;
+        const INITIAL_DELAY = 1000; // 1 detik
+
+        // Fungsi untuk exponential backoff dan retry
+        async function retryFetch(url, options, retries = 0) {
+            try {
+                const response = await fetch(url, options);
+                if (response.status === 429 && retries < MAX_RETRIES) {
+                    const delay = INITIAL_DELAY * Math.pow(2, retries) + Math.random() * 1000;
+                    console.log(`Rate limit exceeded. Retrying in ${delay / 1000}s... (Attempt ${retries + 1})`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return retryFetch(url, options, retries + 1);
+                }
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response;
+            } catch (error) {
+                if (retries < MAX_RETRIES) {
+                    const delay = INITIAL_DELAY * Math.pow(2, retries) + Math.random() * 1000;
+                    console.error(`Fetch failed. Retrying in ${delay / 1000}s... (Attempt ${retries + 1})`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return retryFetch(url, options, retries + 1);
+                }
+                throw new Error(`Final fetch attempt failed: ${error.message}`);
+            }
+        }
+
+        /**
+         * Memanggil Gemini API untuk menghasilkan ulasan lucu untuk proyek.
+         * @param {number} projectId ID proyek untuk elemen UI.
+         * @param {string} projectTitle Judul proyek.
+         * @param {string} projectDesc Deskripsi proyek.
+         */
+        async function generateReview(projectId, projectTitle, projectDesc) {
+            const reviewElement = document.getElementById(`review-result-${projectId}`);
+            const buttonElement = document.getElementById(`review-button-${projectId}`);
+            const loadingElement = document.getElementById(`loading-${projectId}`);
+
+            reviewElement.textContent = '';
+            loadingElement.classList.remove('hidden');
+            buttonElement.disabled = true;
+
+            const systemPrompt = `Anda adalah AI kritik profesional dengan selera humor yang gelap. Beri komentar ulasan (review) singkat (maksimal 3 kalimat) dan lucu untuk proyek mahasiswa ini. Gaya bicara harus santai, sedikit sarkastik, namun tetap memberi semangat. Ulasan harus dalam Bahasa Indonesia.`;
+            const userQuery = `Review proyek dengan judul: "${projectTitle}" dan deskripsi: "${projectDesc}"`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const response = await retryFetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text || "Gagal mendapatkan ulasan. Mungkin AI sedang istirahat kopi.";
+                
+                reviewElement.textContent = text;
+
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                reviewElement.textContent = "Error: Gagal memuat ulasan. Coba lagi, dan pastikan koneksi internet Anda bagus.";
+            } finally {
+                loadingElement.classList.add('hidden');
+                buttonElement.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
